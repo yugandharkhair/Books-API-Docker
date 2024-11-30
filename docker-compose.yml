@@ -1,0 +1,21 @@
+version: '3.8'                     # Docker Compose file format version
+
+services:                          # Define services (containers)
+  api:                            # First service named 'api'
+    build: .                      # Build using Dockerfile in current directory
+    ports:
+      - "3000:3000"              # Maps host port 3000 to container port 3000
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/booksdb  # MongoDB connection string
+    depends_on:
+      - mongodb                   # Ensures MongoDB starts before API
+
+  mongodb:                        # Second service named 'mongodb'
+    image: mongo:latest          # Uses official MongoDB image
+    ports:
+      - "27017:27017"           # Maps MongoDB port
+    volumes:
+      - mongodb_data:/data/db   # Persists MongoDB data
+
+volumes:                         # Define named volumes
+  mongodb_data:                 # Volume for MongoDB data persistence

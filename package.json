@@ -1,0 +1,19 @@
+{
+    "name": "express-docker-books",
+    "version": "1.0.0",
+    "description": "Books API with Express, MongoDB and Docker",
+    "main": "src/index.js",
+    "scripts": {
+      "start": "node src/index.js",
+      "dev": "nodemon src/index.js"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "mongoose": "^8.0.0",
+      "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.2"
+    }
+  }
+  
